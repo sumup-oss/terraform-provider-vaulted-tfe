@@ -1,20 +1,29 @@
 ---
-page_title: "scaffolding Provider"
+page_title: "vaultedtfe Provider"
 subcategory: ""
 description: |-
   
 ---
 
-# scaffolding Provider
+# vaultedtfe Provider
 
 
 
 ## Example Usage
 
 ```terraform
-provider "scaffolding" {
+provider "vaulted_tfe" {
   # example configuration here
 }
 ```
 
 ## Schema
+
+### Optional
+
+- **hostname** (String) The Terraform Enterprise hostname to connect to. Defaults to app.terraform.io.
+- **private_key_content** (String) Content of private key used to decrypt `vaultedtfe_variable` resources. This setting has higher priority than `private_key_path`.
+- **private_key_path** (String) Path to private key used to decrypt `vaultedtfe_variable` resources. This setting has lower priority than `private_key_content`.
+- **protocol** (String) Protocol to use when connecting to specified `hostname` Terraform Enterprise. Defaults to https
+- **ssl_skip_verify** (Boolean) Whether or not to skip certificate verifications.
+- **token** (String) The token used to authenticate with Terraform Cloud/Enterprise.

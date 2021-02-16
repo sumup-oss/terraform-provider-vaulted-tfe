@@ -1,28 +1,45 @@
 package provider
 
 import (
+	"os"
 	"testing"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
-// providerFactories are used to instantiate a provider during acceptance testing.
-// The factory function will be invoked for every Terraform CLI command executed
-// to create a provider server to which the CLI can reattach.
 var providerFactories = map[string]func() (*schema.Provider, error){
-	"scaffolding": func() (*schema.Provider, error) {
+	"vaultedtfe": func() (*schema.Provider, error) {
 		return New("dev")(), nil
 	},
 }
 
+func TestNew(t *testing.T) {
+	err := New("dev")().InternalValidate()
+	require.Nil(t, err)
+}
+
 func TestProvider(t *testing.T) {
-	if err := New("dev")().InternalValidate(); err != nil {
-		t.Fatalf("err: %s", err)
-	}
+	t.Run(
+		"it has resource `vaultedtfe_variable",
+		func(t *testing.T) {
+			t.Parallel()
+			providerInstance := New("dev")()
+
+			actual := providerInstance.Resources()
+			assert.Equal(t, 1, len(actual))
+			assert.Equal(t, "vaultedtfe_variable", actual[0].Name)
+			assert.True(t, actual[0].SchemaAvailable)
+		},
+	)
 }
 
 func testAccPreCheck(t *testing.T) {
-	// You can add code here to run prior to any test case execution, for example assertions
-	// about the appropriate environment variables being set are common to see in a pre-check
-	// function.
+	for _, v := range []string{"TFE_TEST_WORKSPACE_ID", "TFE_TOKEN"} {
+		envVar := os.Getenv(v)
+		if envVar == "" {
+			t.Fatalf("%s must be set for acceptance tests\n", v)
+		}
+	}
 }

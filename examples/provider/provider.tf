@@ -1,3 +1,3 @@
-provider "scaffolding" {
+provider "vaulted_tfe" {
   # example configuration here
 }
