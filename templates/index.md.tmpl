@@ -1,0 +1,56 @@
+---
+page_title: "vaulted-tfe Provider"
+subcategory: ""
+description: |-
+ Terraform Cloud/Enterprise encrypted variables via `resource.vaulted-tfe_variable`
+---
+
+# vaulted-tfe Provider
+
+A terraform provider that utilizes https://github.com/sumup-oss/vaulted to provide
+https://github.com/hashicorp/terraform for https://app.terraform.io/ (Terraform Cloud/Enterprise) encrypted variables via
+`resource.vaulted-tfe_variable` that:
+
+* are **never** stored as plaintext in your terraform state.
+* are **never** logged in stdout as plaintext.
+* can be **safely** stored in SCM such as Git in their encrypted payload format produced by https://github.com/sumup-oss/vaulted .
+
+Tested and used with "public" Terraform Cloud.
+
+## Why should I use this?
+
+At SumUp we're adopting Terraform Cloud with multiple workspaces as our
+preferred terraform executor and remote state manager.
+
+We're already using https://github.com/sumup-oss/terraform-provider-vaulted/
+to allow **everyone** inside the organization to provision secrets,
+store them in SCM and CI to provision them.
+
+This enables us to completely shift-left in terms of responsibilities.
+
+However, while moving to Terraform Cloud, we've noticed that we were
+lacking a way to provision the Terraform Cloud workspace variables and
+store them in SCM.
+
+## Setup
+
+### Prerequisites
+
+The following apply here as well.
+
+https://github.com/sumup-oss/vaulted#prerequisites
+
+### Simple integration approach
+
+1. Generate RSA keypair by following https://github.com/sumup-oss/vaulted#setup
+1. Specify `provider` by following [Example Usage](#example-usage)
+1. Add `vaulted-tfe_variable` resources
+1. `terraform plan`
+1. `terraform apply`
+1. :tada:
+
+## Example Usage
+
+{{tffile "examples/provider/provider.tf"}}
+
+{{ .SchemaMarkdown | trimspace }}
