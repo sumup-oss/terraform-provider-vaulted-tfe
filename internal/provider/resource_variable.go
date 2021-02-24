@@ -28,6 +28,7 @@ const (
 
 func resourceVariable() *schema.Resource {
 	return &schema.Resource{
+		Description:   "Creates/updates/destroys TFE Cloud variables",
 		CreateContext: resourceVariableCreate,
 		ReadContext:   resourceVariableRead,
 		UpdateContext: resourceVariableUpdate,
@@ -66,6 +67,7 @@ func resourceVariable() *schema.Resource {
 					},
 					false,
 				),
+				Description: "can be one of `terraform` or `env`",
 			},
 			"description": {
 				Type:     schema.TypeString,

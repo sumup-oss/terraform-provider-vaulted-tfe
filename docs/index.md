@@ -12,12 +12,16 @@ description: |-
 ## Example Usage
 
 ```terraform
-provider "vaulted_tfe" {
+provider "vaultedtfe" {
   # example configuration here
 }
 ```
 
 ## Schema
+
+### Required
+
+- **token** (String) The token used to authenticate with Terraform Cloud/Enterprise.
 
 ### Optional
 
@@ -26,4 +30,3 @@ provider "vaulted_tfe" {
 - **private_key_path** (String) Path to private key used to decrypt `vaultedtfe_variable` resources. This setting has lower priority than `private_key_content`.
 - **protocol** (String) Protocol to use when connecting to specified `hostname` Terraform Enterprise. Defaults to https
 - **ssl_skip_verify** (Boolean) Whether or not to skip certificate verifications.
-- **token** (String) The token used to authenticate with Terraform Cloud/Enterprise.

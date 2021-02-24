@@ -1,3 +1,3 @@
-provider "vaulted_tfe" {
+provider "vaultedtfe" {
   # example configuration here
 }

@@ -120,7 +120,7 @@ func configure(
 		transport.TLSClientConfig.InsecureSkipVerify = d.Get("ssl_skip_verify").(bool)
 
 		httpHeaders := http.Header{}
-		httpHeaders.Add("User-Agent", p.UserAgent("terraform-provider-vaulted-tfe", version))
+		httpHeaders.Add("User-Agent", p.UserAgent("terraform-provider-vaultedtfe", version))
 		cfg.Headers = httpHeaders
 
 		client, err := tfe.NewClient(cfg)
