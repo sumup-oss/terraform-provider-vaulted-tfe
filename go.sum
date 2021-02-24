@@ -387,6 +387,8 @@ github.com/stretchr/testify v1.4.0 h1:2E4SXV/wtOkTonXsotYi4li6zVWxYlZuYNCXe9XRJy
 github.com/stretchr/testify v1.4.0/go.mod h1:j7eGeouHqKxXV5pUuKE4zz7dFj8WfuZ+81PSLYec5m4=
 github.com/stretchr/testify v1.6.1 h1:hDPOHmpOpP40lSULcqw7IrRb/u7w6RpDC9399XyoNd0=
 github.com/stretchr/testify v1.6.1/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
+github.com/stretchr/testify v1.7.0 h1:nwc3DEeHmmLAfoZucVR881uASk0Mfjw8xYJ99tb5CcY=
+github.com/stretchr/testify v1.7.0/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
 github.com/sumup-oss/go-pkgs v0.0.0-20190422205605-69621402744f/go.mod h1:HpFDjd3a1xPFC7Q7rR9FkqkFAFsctvh8Fu4ph7SVuPA=
 github.com/sumup-oss/go-pkgs v0.0.0-20210128123311-b82fa408a3ee h1:hHzdB78JzzrBipDXFSjbwQdRpUkLWGVCLS4bMjjYdds=
 github.com/sumup-oss/go-pkgs v0.0.0-20210128123311-b82fa408a3ee/go.mod h1:hSAW+N2nDnFAc2eO+fhRCQ8ZrrgPjA8MqZGv1JgeB5A=
