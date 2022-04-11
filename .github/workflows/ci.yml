@@ -27,7 +27,7 @@ jobs:
         go-version: '1.16'
       id: go
     - name: Check out code into the Go module directory
-      uses: actions/checkout@v2.3.3
+      uses: actions/checkout@v3.0.0
     - name: Get dependencies
       run: |
         go mod download
@@ -61,7 +61,7 @@ jobs:
         go-version: 1.16
       id: go
     - name: Check out code into the Go module directory
-      uses: actions/checkout@v2.3.3
+      uses: actions/checkout@v3.0.0
     - name: Get dependencies
       run: |
         go mod download
